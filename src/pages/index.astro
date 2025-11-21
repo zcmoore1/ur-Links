@@ -1,0 +1,60 @@
+---
+// Edit these links + add/remove as many as you want
+const links = [
+  { label: "X / Twitter", url: "https://x.com/yourusername", icon: "i-logos-x" },
+  { label: "Instagram", url: "https://instagram.com/yourusername", icon: "i-logos-instagram" },
+  { label: "YouTube", url: "https://youtube.com/@you", icon: "i-logos-youtube" },
+  { label: "Newsletter", url: "https://yoursite.beehiiv.com", icon: "i-ph-envelope" },
+  { label: "Shop", url: "https://shop.yourname.com", icon: "i-ph-shopping-cart" },
+];
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Name – All My Links</title>
+    <meta name="description" content="One link to rule them all." />
+    <link rel="icon" href="data:," /> <!-- replace with your favicon if you want -->
+    
+    <!-- Simple icons + nice font (no extra dependencies) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style is:global>
+      :root { --bg: #000; --fg: #fff; --accent: #1d9bf0; }
+      @media (prefers-color-scheme: light) { :root { --bg: #fff; --fg: #000; --accent: #0070f3; } }
+      
+      body { margin:0; background:var(--bg); color:var(--fg); font-family:'Inter',system-ui,sans-serif; 
+             display:grid; place-items:center; min-height:100dvh; padding:2rem 1rem; }
+      main { max-width:380px; width:100%; text-align:center; }
+      img { width:110px; height:110px; border-radius:50%; object-fit:cover; border:4px solid var(--accent); }
+      h1 { font-size:2rem; margin:1rem 0 0.5rem; }
+      p { opacity:0.8; margin-bottom:2.5rem; }
+      a {
+        display:flex; align-items:center; justify-content:center; gap:12px;
+        background:rgba(255,255,255,0.1); color:var(--fg); text-decoration:none;
+        padding:1rem; border-radius:16px; margin:0.75rem 0; font-weight:600;
+        transition:all .2s; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.1);
+      }
+      a:hover { transform:translateY(-2px); background:rgba(255,255,255,0.2); }
+      .ti { font-size:1.5rem; }
+      @media (prefers-color-scheme: light) { a { background:rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.1); } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="https://your-photo.jpg" alt="Your Name" /> <!-- change this URL -->
+      <h1>@yourhandle</h1>
+      <p>Designer • Creator • World changer</p>
+
+      {links.map(link => (
+        <a href={link.url} target="_blank" rel="noopener">
+          {link.icon.startsWith("i-") ? <i class={link.icon + " ti"}></i> : <span>{link.icon}</span>}
+          {link.label}
+        </a>
+      ))}
+    </main>
+  </body>
+</html>
